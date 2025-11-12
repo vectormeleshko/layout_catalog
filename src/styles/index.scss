@@ -1,3 +1,252 @@
-body {
+@use 'variables' as v;
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  height: 984px;
+  width: 1024px;
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+}
+
+.header {
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #fff;
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 0 50px;
+  margin-bottom: 50px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  display: block;
+  margin-top: 10px;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__list:first-child {
+    margin: 0;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    font-style: 12px;
+    color: v.$title-colors;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  &__link:hover {
+    color: #00acdc;
+  }
+
+  &__item:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+
+.is-active {
+  position: relative;
+  color: #00acdc;
+}
+
+.is-active::after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  border-radius: 8px;
+  background-color: #00acdc;
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+  padding: 20px;
+
+  // border: black 1px solid;
+  // width: 944px;
+  // height: 862px;
+
+  grid-template-columns: repeat(4, 200px);
+  gap: 46px 48px;
+
+  &__card {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    border: 1px solid #f3f3f3;
+    padding: 0 16px;
+    height: 408px;
+    width: 200px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  &__image {
+    box-sizing: border-box;
+    object-fit: contain;
+    display: block;
+    height: 134px;
+    max-width: 100%;
+    margin: 32px auto 40px;
+  }
+
+  &__title {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: v.$title-colors;
+    margin-bottom: 4px;
+  }
+
+  &__product-code {
+    box-sizing: border-box;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    color: v.$title-color;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  &__rating-reviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: v.$spacing-m 0 v.$spacing-l;
+    height: 16px;
+  }
+
+  &__stars {
+    display: flex;
+    height: 16px;
+    width: 96px;
+    align-items: center;
+  }
+
+  &__star {
+    width: 16px;
+    height: 16px;
+    background: url(../images/star.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // background-size: 16px 16px;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  &__stars--1 .main__star:nth-child(-n + 1) {
+    background-image: url('../images/star-active.svg');
+  }
+
+  &__stars--2 .main__star:nth-child(-n + 2) {
+    background-image: url('../images/star-active.svg');
+  }
+
+  &__stars--3 .main__star:nth-child(-n + 3) {
+    background-image: url('../images/star-active.svg');
+  }
+
+  &__stars--4 .main__star:nth-child(-n + 4) {
+    background-image: url('../images/star-active.svg');
+  }
+
+  &__stars--5 .main__star:nth-child(-n + 5) {
+    background-image: url('../images/star-active.svg');
+  }
+
+  &__reviews {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    margin: 0;
+    color: #060b35;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    line-height: 18px;
+    margin: 24px 0 16px;
+    height: 18px;
+    align-items: baseline;
+  }
+
+  &__price-title {
+    font-size: 12px;
+    font-weight: 400;
+    color: #616070;
+  }
+
+  &__price-amount {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #060b35;
+  }
+
+  &__button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    text-align: center;
+    padding: 12px 0;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: v.$blue-color;
+  }
+
+  &__button:hover {
+    background-color: #fff;
+    color: v.$blue-color;
+    border: 1px solid v.$blue-color;
+  }
+
+  &__card:hover &__tittle {
+    color: #34568b;
+  }
+  &__card:hover {
+    transform: scale(1.2); /* 1.0 -> 1.2 = +20% */
+    z-index: 10;
+  }
 }
