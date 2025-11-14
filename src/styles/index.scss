@@ -25,7 +25,8 @@ body {
   justify-content: space-between;
   display: flex;
   padding: 0 50px;
-  margin-bottom: 50px;
+
+  // margin-bottom: 50px;
 }
 
 .logo {
@@ -39,8 +40,6 @@ body {
   &__list {
     display: flex;
     list-style: none;
-
-    // padding-right: 10px;
   }
 
   &__list:first-child {
@@ -87,12 +86,7 @@ body {
 .main {
   display: grid;
   justify-content: center;
-
-  // padding: 20px;
-
-  // border: black 1px solid;
-  // width: 944px;
-  // height: 862px;
+  margin-top: 50px;
 
   grid-template-columns: repeat(4, 200px);
   gap: 46px 48px;
