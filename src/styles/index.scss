@@ -39,6 +39,8 @@ body {
   &__list {
     display: flex;
     list-style: none;
+
+    // padding-right: 10px;
   }
 
   &__list:first-child {
@@ -85,7 +87,8 @@ body {
 .main {
   display: grid;
   justify-content: center;
-  padding: 20px;
+
+  // padding: 20px;
 
   // border: black 1px solid;
   // width: 944px;
